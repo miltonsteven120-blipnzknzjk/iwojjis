@@ -1,0 +1,52 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Playfair Display', serif;
+}
+
+#scene {
+  width: 100vw;
+  height: 100vh;
+  background: url("assets/galaxy.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+#field {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: url("assets/field.png") bottom/cover no-repeat;
+}
+
+.tulip {
+  position: absolute;
+  bottom: 10%;
+  width: 260px;
+  height: 480px;
+  background: url("assets/tulip_closed.png") center/contain no-repeat;
+  cursor: pointer;
+  transition: transform 0.8s ease;
+}
+
+.tulip.open {
+  background: url("assets/tulip_open.png") center/contain no-repeat;
+  transform: scale(1.05);
+}
+
+#floatingText {
+  position: absolute;
+  max-width: 500px;
+  color: white;
+  font-size: 18px;
+  line-height: 1.6;
+  font-style: italic;
+  display: none;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
