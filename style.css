@@ -1,52 +1,67 @@
-html, body {
+* {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  font-family: 'Playfair Display', serif;
+  box-sizing: border-box;
 }
 
-#scene {
-  width: 100vw;
+body {
   height: 100vh;
-  background: url("assets/galaxy.jpg") center/cover no-repeat;
-  position: relative;
+  overflow: hidden;
+  font-family: 'Georgia', cursive;
 }
 
-#field {
+/* Galaxia */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("assets/galaxy.jpg") center/cover no-repeat;
+  z-index: -3;
+}
+
+/* Campo */
+.field {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 40%;
-  background: url("assets/field.png") bottom/cover no-repeat;
+  background: url("assets/field.png") center/cover no-repeat;
+  z-index: -2;
 }
 
+/* Tulipán */
 .tulip {
   position: absolute;
   bottom: 10%;
-  width: 260px;
-  height: 480px;
-  background: url("assets/tulip_closed.png") center/contain no-repeat;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tulip img {
+  width: 320px;
   cursor: pointer;
-  transition: transform 0.8s ease;
+  transition: transform 1s ease;
 }
 
-.tulip.open {
-  background: url("assets/tulip_open.png") center/contain no-repeat;
-  transform: scale(1.05);
+/* Efecto apertura */
+.tulip img.open {
+  transform: scale(1.1) rotate(-3deg);
 }
 
-#floatingText {
+/* Caja de texto */
+.text-box {
   position: absolute;
-  max-width: 500px;
-  color: white;
-  font-size: 18px;
-  line-height: 1.6;
-  font-style: italic;
-  display: none;
-  animation: fadeUp 1.5s ease forwards;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.text-box.show {
+  opacity: 1;
 }
